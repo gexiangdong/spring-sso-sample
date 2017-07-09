@@ -1,0 +1,21 @@
+server:
+    port: 8082
+    context-path: /mvc
+    session:
+      cookie:
+        name: CLIENTSESSION
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      clientId: rs1
+      clientSecret: secret
+      accessTokenUri: http://localhost:8081/authserver/oauth/token
+      userAuthorizationUri: http://localhost:8081/authserver/oauth/authorize
+    resource:
+      userInfoUri: http://localhost:8081/authserver/user/me
+      # tokenInfoUri: http://localhost:8081/authserver/check_token
+spring:
+  thymeleaf:
+    cache: false        

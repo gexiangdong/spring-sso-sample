@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>User Info</title>
+</head>
+
+<body>
+<div class="container">
+	<div>
+		<h1 style="border-bottom:1px dotted #EFEFEF;">User Info</h1>
+    <div style="padding:0px 20px 20px 20px;">
+  		Welcome, <span th:text="${#authentication.name}">Name</span> (<span th:text="'email: ' + ${email} " />)
+      <hr />
+          Your authorities are <span th:text="${#authentication.authorities}">authorities</span>     
+          <ul th:each="auth, iterStat : ${#authentication.authorities}">
+            <li><span th:text="${iterStat.index}">index</span> <span th:text="${auth}">authentity</span></li>
+          </ul> 
+    </div>
+    <div style="padding:20px;">
+          <p th:if="${name != 'World'}" th:text="'Hello, ' + ${name} + '!'" />
+    </div>
+	</div>
+</div>
+</body>
+</html>
