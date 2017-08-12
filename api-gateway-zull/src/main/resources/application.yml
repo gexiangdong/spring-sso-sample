@@ -1,0 +1,30 @@
+server:
+    port: 8089
+    context-path: /route/
+
+
+zuul:
+  routes:
+    oauth:
+      path: /oauth/**
+      url: http://192.168.1.9/temp/
+    user:
+      path: /u/**
+      url: http://192.168.1.9/test/
+
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      clientId: rs1
+      clientSecret: secret
+      accessTokenUri: http://localhost:8081/authserver/oauth/token
+      userAuthorizationUri: http://localhost:8081/authserver/oauth/authorize
+    resource:
+      userInfoUri: http://localhost:8081/authserver/user/me
+
+
+
+      

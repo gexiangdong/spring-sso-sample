@@ -1,0 +1,41 @@
+server:
+    port: 8092
+    context-path: /res
+    session:
+      cookie:
+        name: CLIENTSESSION
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      clientId: rs1
+      clientSecret: secret
+      accessTokenUri: http://localhost:8091/authserver/oauth/token
+      userAuthorizationUri: http://localhost:8091/authserver/oauth/authorize
+    resource:
+      jwt:
+        keyValue: |
+            -----BEGIN PUBLIC KEY-----
+            MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkCoBhnUW7gCyBE62ic3h
+            qhNNrERokyG6gEPXL6fX93yWhfr5h4mWjKT2SOgoryAt8snctlExridfNQA5DohX
+            9kCH7XBO1o4W2TCiZmva25mfoqU0Qz6zTZQXAPPfbCr1WrsCLY4wloAcCh7t/39S
+            G3Q1v8GBf5ZrM1hXfDZgRakCXfB910OHbCvXAnFg0GLWWLG1uag6axCBXpCNOGHs
+            H7L2fa+f7VapxXbY7uGYkGFkaTDQkjLHpjF7aZDc07uiREQGJxT19th6fz8hW8Cs
+            Q2FVuBfH9g8V8qB5QmT2r8O9HGpLbyWOdw4ewAd8ki9pHHg69L6vZrLPPPx8fWiY
+            vQIDAQAB
+            -----END PUBLIC KEY-----
+
+
+spring:
+  thymeleaf:
+    cache: false 
+
+logging:
+  level:
+    cn.devmgr: TRACE
+    org.springframework: WARN
+  
+ 
+
+  
